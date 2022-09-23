@@ -11,7 +11,8 @@ add('shared_files', [
     '.env',
 ]);
 add('shared_dirs', [
-    'var',
+    'var/oauth',
+    'var/log',
     'config/secrets/prod',
     'node_modules',
     'vendor',
@@ -28,7 +29,7 @@ host('155.133.130.39')
 // Tasks
 
 task('deploy:build_frontend', function () {
-    run('npm install && npm run build');
+    run('cd {{release_path}} && npm install && npm run build');
 });
 
 // Hooks
